@@ -2,7 +2,7 @@
   "name": "env.js",
   "description": "Toggle environment configuration based on url hostname patterns.",
   "author": "Jarid Margolin <jaridmargolin@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/jaridmargolin/env.js",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "amdclean": "~2.2.2",
+    "amdclean": "~2.0.0",
     "easy-amdtest": "~0.0.4",
     "grunt": "~0.4.3",
     "grunt-contrib-clean": "~0.5.0",

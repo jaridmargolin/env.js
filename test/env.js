@@ -44,7 +44,7 @@ describe('env.js', function () {
     it('Should add empty instance vars endpoints and rules', function () {
       assert.isObject(test.endpoints);
       assert.isArray(test.rules);
-    })
+    });
 
   });
 
@@ -119,7 +119,7 @@ describe('env.js', function () {
         'base': 'included in all environments',
         'apiUrl': 'http://test.api.com'
       });
-    })
+    });
 
   });
 

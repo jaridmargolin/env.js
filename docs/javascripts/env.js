@@ -1,5 +1,5 @@
 /*!
- * v0.0.1
+ * v0.0.2
  * Copyright (c) 2014 Jarid Margolin
  * env.js is open sourced under the MIT license.
  */ 
