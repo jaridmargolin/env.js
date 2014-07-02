@@ -82,13 +82,13 @@ grunt.initConfig({
   'requirejs': {
     compile: {
       options: {
-        name: 'env',
+        name: 'index',
         baseUrl: 'src',
         out: 'dist/env.js',
         optimize: 'none',
         skipModuleInsertion: true,
         paths: {
-          'dom-event': '../node_modules/dom-event.js/dist/amd/dom-event'
+          'env': '../src'
         },
         onBuildWrite: function(name, path, contents) {
           return require('amdclean').clean({
@@ -113,7 +113,7 @@ grunt.initConfig({
   'umd': {
     umd: {
       src: 'dist/env.js',
-      objectToExport: 'env',
+      objectToExport: 'index',
       globalAlias: 'env',
       dest: 'dist/env.js'
     }
@@ -280,7 +280,11 @@ grunt.initConfig({
   'saucelabs-mocha': {
     all: {
       options: {
-        urls: ['http://127.0.0.1:9999/test/_runner.html'],
+        urls: [
+          'http://127.0.0.1:9999/test/_runner.html',
+          'http://127.0.0.1:9999/test/_dist-amd.html',
+          'http://127.0.0.1:9999/test/_dist-umd.html'
+        ],
         build: process.env.TRAVIS_JOB_ID || '<%= pkg.version %>',
         tunnelTimeout: 5,
         concurrency: 3,
@@ -296,7 +300,11 @@ grunt.initConfig({
   // --------------------------------------------------------------------------
 
   'mocha_phantomjs': {
-    all: ['test/_runner.html']
+    all: [
+      'test/_runner.html',
+      'test/_dist-amd.html',
+      'test/_dist-umd.html'
+    ]
   }
 
 });

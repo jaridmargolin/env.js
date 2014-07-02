@@ -8,7 +8,7 @@
 
 
 define([
-  'utils',
+  'env/utils',
 ], function (_) {
 
 

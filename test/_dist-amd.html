@@ -13,33 +13,22 @@
     <!-- content -->
     <div id="mocha"></div>
 
-    <!-- workboard -->
-    <div id="workboard"></div>
-
     <!-- tests -->
     <script src="../node_modules/requirejs/require.js"></script>
     <script src="../node_modules/easy-amdtest/dist/easy-amdtest.js"></script>
     <script>
       var testSuite = new EasyAMDTest({
-        baseUrl: '../src',
+        baseUrl: '../dist',
         urlArgs: 'bust=' + (new Date()).getTime(),
         paths: {
           'proclaim' : '/node_modules/proclaim/lib/proclaim',
-          'sinon'    : '/node_modules/sinon/pkg/sinon',
           'mocha'    : '/node_modules/mocha/mocha',
-          'jquery'   : '/node_modules/jquery/dist/jquery',
-          'env'      : '/src'
-        },
-        shim: {
-          'sinon': {
-            exports: 'sinon'
-          }
+          'env'      : '/dist/amd'
         }
       }).run({
         name: 'mocha',
         tests: [
-          './utils.js',
-          './env.js'
+          './_dist-amd.js'
         ]
       });
     </script>

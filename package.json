@@ -2,7 +2,7 @@
   "name": "env.js",
   "description": "Toggle environment configuration based on url hostname patterns.",
   "author": "Jarid Margolin <jaridmargolin@gmail.com>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/jaridmargolin/env.js",
   "repository": {
     "type": "git",

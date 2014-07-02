@@ -10,7 +10,7 @@ define([
   'jquery',
   'proclaim',
   'sinon',
-  'env'
+  'env/env'
 ], function ($, assert, sinon, Env) {
 
 

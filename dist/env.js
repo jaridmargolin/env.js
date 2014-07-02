@@ -1,5 +1,5 @@
 /*!
- * v0.0.2
+ * v0.0.3
  * Copyright (c) 2014 Jarid Margolin
  * env.js is open sourced under the MIT license.
  */ 
@@ -16,7 +16,6 @@
     }
 }(this, function() {
 
-;(function() {
 /*
  * utils.js
  * 
@@ -24,8 +23,8 @@
  * MIT LICENCE
  *
  */
-var utils;
-utils = {
+var envUtils;
+envUtils = {
   /**
    * Shallow copy object properties from n objects to dest object.
    *
@@ -50,8 +49,6 @@ utils = {
     return dest;
   }
 };
-}());
-;(function() {
 /*
  * env.js
  * 
@@ -59,8 +56,8 @@ utils = {
  * MIT LICENCE
  *
  */
-var _env_;
-_env_ = function (_) {
+var envEnv;
+envEnv = function (_) {
   // ----------------------------------------------------------------------------
   // Scope vars
   // ----------------------------------------------------------------------------
@@ -175,10 +172,23 @@ _env_ = function (_) {
   // Expose
   // ----------------------------------------------------------------------------
   return Env;
-}(utils);
-}());
+}(envUtils);
+/*
+ * index.js
+ * 
+ * (C) 2014 Jarid Margolin
+ * MIT LICENCE
+ *
+ */
+var index;
+index = function (env) {
+  // ----------------------------------------------------------------------------
+  // Expose
+  // ----------------------------------------------------------------------------
+  return env;
+}(envEnv);
 
 
-return env;
+return index;
 
 }));
