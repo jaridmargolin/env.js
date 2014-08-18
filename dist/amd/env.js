@@ -8,22 +8,22 @@
 
 
 define([
-  'env/utils',
+  './utils',
 ], function (_) {
 
 
-// ----------------------------------------------------------------------------
-// Scope vars
-// ----------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
+ * scope
+ * ---------------------------------------------------------------------------*/
 
 // Will not change accross instances so we can set it as a hidden
 // scope variable.
 var host = window.location.host;
 
 
-// ----------------------------------------------------------------------------
-// Env Class
-// ----------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
+ * Env
+ * ---------------------------------------------------------------------------*/
 
 /**
  * Class to manage toggling environment variables based
@@ -50,6 +50,7 @@ var Env = function (base) {
   this.host = host;
 };
 
+
 /**
  * Add property to endpoints object.
  *
@@ -70,11 +71,12 @@ var Env = function (base) {
  *   name and value refers to the prop value for the specified env.
  */
 Env.prototype.addProperty = function (prop, values) {
-  for (var env in values) {
-    this.endpoints[env] = this.endpoints[env] || {};
-    this.endpoints[env][prop] = values[env];
+  for (var e in values) {
+    this.endpoints[e] = this.endpoints[e] || {};
+    this.endpoints[e][prop] = values[e];
   }
 };
+
 
 /**
  * Add a rule to choose environment by matching specified pattern with
@@ -97,6 +99,7 @@ Env.prototype.addProperty = function (prop, values) {
 Env.prototype.addRule = function (pattern, env) {
   this.rules.push({ pattern: pattern, env: env });
 };
+
 
 /**
  * Match hostname against specified rules and return object containing
@@ -129,9 +132,9 @@ Env.prototype.resolve = function (fallback) {
 };
 
 
-// ----------------------------------------------------------------------------
-// Expose
-// ----------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
+ * export
+ * ---------------------------------------------------------------------------*/
 
 return Env;
 

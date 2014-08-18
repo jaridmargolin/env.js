@@ -1,20 +1,18 @@
-/*!
- * v0.0.3
- * Copyright (c) 2014 Jarid Margolin
- * env.js is open sourced under the MIT license.
- */ 
-
-(function(root, factory) {
-    if(typeof exports === 'object') {
-        module.exports = factory();
-    }
-    else if(typeof define === 'function' && define.amd) {
-        define([], factory);
-    }
-    else {
-        root['env'] = factory();
-    }
-}(this, function() {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([], function () {
+      return (root.returnExportsGlobal = factory());
+    });
+  } else if (typeof exports === 'object') {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like enviroments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    root['Env'] = factory();
+  }
+}(this, function () {
 
 /*
  * utils.js
@@ -23,8 +21,8 @@
  * MIT LICENCE
  *
  */
-var envUtils;
-envUtils = {
+var utils, env;
+utils = {
   /**
    * Shallow copy object properties from n objects to dest object.
    *
@@ -42,8 +40,8 @@ envUtils = {
    */
   extend: function (dest) {
     for (var i = 1; i < arguments.length; i++) {
-      for (var key in arguments[i]) {
-        dest[key] = arguments[i][key];
+      for (var k in arguments[i]) {
+        dest[k] = arguments[i][k];
       }
     }
     return dest;
@@ -56,17 +54,16 @@ envUtils = {
  * MIT LICENCE
  *
  */
-var envEnv;
-envEnv = function (_) {
-  // ----------------------------------------------------------------------------
-  // Scope vars
-  // ----------------------------------------------------------------------------
+env = function (_) {
+  /* -----------------------------------------------------------------------------
+   * scope
+   * ---------------------------------------------------------------------------*/
   // Will not change accross instances so we can set it as a hidden
   // scope variable.
   var host = window.location.host;
-  // ----------------------------------------------------------------------------
-  // Env Class
-  // ----------------------------------------------------------------------------
+  /* -----------------------------------------------------------------------------
+   * Env
+   * ---------------------------------------------------------------------------*/
   /**
    * Class to manage toggling environment variables based
    * on url hostname patterns.
@@ -111,9 +108,9 @@ envEnv = function (_) {
    *   name and value refers to the prop value for the specified env.
    */
   Env.prototype.addProperty = function (prop, values) {
-    for (var env in values) {
-      this.endpoints[env] = this.endpoints[env] || {};
-      this.endpoints[env][prop] = values[env];
+    for (var e in values) {
+      this.endpoints[e] = this.endpoints[e] || {};
+      this.endpoints[e][prop] = values[e];
     }
   };
   /**
@@ -168,27 +165,13 @@ envEnv = function (_) {
     // Default to test
     return _.extend(this.base, this.endpoints[fallback]);
   };
-  // ----------------------------------------------------------------------------
-  // Expose
-  // ----------------------------------------------------------------------------
+  /* -----------------------------------------------------------------------------
+   * export
+   * ---------------------------------------------------------------------------*/
   return Env;
-}(envUtils);
-/*
- * index.js
- * 
- * (C) 2014 Jarid Margolin
- * MIT LICENCE
- *
- */
-var index;
-index = function (env) {
-  // ----------------------------------------------------------------------------
-  // Expose
-  // ----------------------------------------------------------------------------
-  return env;
-}(envEnv);
+}(utils);
 
+return env;
 
-return index;
 
 }));

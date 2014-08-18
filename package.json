@@ -2,7 +2,7 @@
   "name": "env.js",
   "description": "Toggle environment configuration based on url hostname patterns.",
   "author": "Jarid Margolin <jaridmargolin@gmail.com>",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "homepage": "https://github.com/jaridmargolin/env.js",
   "repository": {
     "type": "git",
@@ -14,30 +14,11 @@
   "scripts": {
     "test": "grunt test"
   },
+  "main": "dist/common/env.js",
   "devDependencies": {
-    "amdclean": "~2.0.0",
-    "easy-amdtest": "~0.0.4",
-    "grunt": "~0.4.3",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-connect": "~0.8.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-nodefy": "~0.2.1",
-    "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-contrib-uglify": "~0.5.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-gh-pages": "~0.9.1",
-    "grunt-jekyll": "~0.4.2",
-    "grunt-mocha-phantomjs": "~0.5.0",
-    "grunt-saucelabs": "~8.1.0",
-    "grunt-umd": "~1.7.3",
-    "grunt-wrap": "~0.3.0",
+    "easy-build": "~0.0.1",
     "jquery": "~1.11.0",
-    "matchdep": "~0.3.0",
-    "mocha": "~1.20.1",
     "proclaim": "~2.0.0",
-    "requirejs": "~2.1.14",
     "sinon": "~1.10.2"
   },
   "license": "MIT"
